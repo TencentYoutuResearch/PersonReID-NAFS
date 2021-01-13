@@ -342,3 +342,22 @@ def process_data(args):
     process_dataset('val', val_decodedata, args)
     process_dataset('test', test_decodedata, args)
 
+def parse_args():
+    parser = argparse.ArgumentParser(description='Command for data preprocessing')
+    parser.add_argument('--img_root', type=str)
+    parser.add_argument('--json_root', type=str)
+    parser.add_argument('--out_root',type=str)
+    parser.add_argument('--min_word_count', type=int, default=0)
+    parser.add_argument('--default_image_size', type=int, default=224)
+    parser.add_argument('--load_split', action='store_true')
+    parser.add_argument('--load_tokens', action='store_true')
+    parser.add_argument('--load_vocab', action='store_true')
+    parser.add_argument('--remove_stopwords', type=str, default=None)
+    parser.add_argument('--keep_symbol', action='store_true')
+    args = parser.parse_args()
+    return args
+
+if __name__ == '__main__':
+    args = parse_args()
+    makedir(args.out_root)
+    process_data(args)
