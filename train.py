@@ -17,7 +17,7 @@ from solver import WarmupMultiStepLR, RandomErasing
 
 from test import test
 import numpy as np
-
+import re
 import pickle
 import random
 import math
@@ -50,14 +50,13 @@ def train(epoch, train_loader, network, optimizer, compute_loss, args, co_locati
         n_sep = 2
 
         for i, c in enumerate(captions):
-            c = c.split()
-            s = math.floor(len(c) / n_sep)
-            start = 0
-            for j in range(0, n_sep):
-                if j == n_sep: sep_c = c[start:]
-                else: sep_c = c[start:min(start + s, len(c))]
-                sep_captions.append(' '.join(sep_c))
-                start += s
+            c = re.split(r'[;,!?.]', c)
+            if len(c) > n_sep or len(c) == n_sep:
+                sep_captions = sep_captions + c[0:n_sep]
+            else:
+                pad_length = n_sep - len(c)
+                padding = ["[PAD]" for j in range(pad_length)]
+                sep_captions = sep_captions + c + padding
 
         tokens, segments, input_masks, caption_length = network.module.language_model.pre_process(captions)
         sep_tokens, sep_segments, sep_input_masks, sep_caption_length = network.module.language_model.pre_process(sep_captions)
