@@ -6,6 +6,7 @@ This is an implementation for our paper ***Contextual Non-Local Alignment over F
 * numpy
 * matplotlib (not necessary unless the need for the result figure)  
 * scipy 1.2.1 
+* pytorch_transformers
 ## Usage
 
 ### Data Preparation
