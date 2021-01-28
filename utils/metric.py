@@ -457,6 +457,9 @@ def compute_topk(query_global, query, value_bank, gallery_global, gallery_key, g
         result.extend(topk(sim_cosine_all, target_query, target_gallery, k=k_list, dim=0, print_index=False, reid_sim=reid_sim))
     return global_result, local_result, result
 
+def jaccard(a_list,b_list):
+    return 1.0 - float(len(set(a_list)&set(b_list)))/float(len(set(a_list)|set(b_list)))*1.0
+
 def topk(sim, target_gallery, target_query, k=[1,5,10], dim=1, print_index=False, reid_sim = None):
     result = []
     maxk = max(k)
@@ -479,7 +482,7 @@ def topk(sim, target_gallery, target_query, k=[1,5,10], dim=1, print_index=False
         from scipy.spatial import distance
         for i, qq in enumerate(q_knn):
             for j, gg in enumerate(g_knn):
-                jaccard_dist[i, j] = 1 - distance.jaccard(qq, gg)
+                jaccard_dist[i, j] = 1.0 - jaccard(qq, gg)
         _, pred_index = torch.Tensor(sim + jaccard_dist).topk(maxk, dim, True, True)
         pred_labels = target_gallery[pred_index]
   
