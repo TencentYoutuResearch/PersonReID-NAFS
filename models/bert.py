@@ -30,7 +30,7 @@ class Bert(nn.Module):
 
         for j in range(len(tokens)):
             padding = [0] * (100 - len(tokens[j]))
-            text_length.append(len(tokens[j])+2)
+            text_length.append(len(tokens[j])+3)
             tokens[j] += padding
             segments[j] += padding
             input_masks[j] += padding

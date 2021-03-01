@@ -26,7 +26,14 @@ Run command sh scripts/test.sh to evaluate the model.
 ## Model Framework
 ![Framework](figures/framework.JPG)
 
+## Pretrained Model
+
+Model [(Google Drive)](https://drive.google.com/file/d/1uQBaNshke8b2l-V1pmiWzd316uM7LV7C/view?usp=sharing)
+
+Training log [(Google Drive)](https://drive.google.com/file/d/1MFMsZ7bn1TCqZUHsSvsDoJOMF0r_8uK0/view?usp=sharing)
+
 ## Model Performance
+
 ![Performance0](figures/table1.JPG)
 ![Performance0](figures/figure4.JPG)
 
