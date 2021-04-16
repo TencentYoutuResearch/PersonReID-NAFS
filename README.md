@@ -1,4 +1,6 @@
 # Contextual Non-Local Alignment over Full-Scale Representation for Text-Based Person Search
+**We have reimplemented the method in our [YouReID](https://github.com/TencentYoutuResearch/PersonReID-YouReID) framework. The refactored code is simple and easy to read. More information can be found in [YouReID/NAFS](https://github.com/TencentYoutuResearch/PersonReID-YouReID/blob/main/docs/NAFS/NAFS.md)** 
+
 This is an implementation for our paper ***Contextual Non-Local Alignment over Full-Scale Representation for Text-Based Person Search.***  The code is modified from [Github repositoty](https://github.com/labyrinth7x/Deep-Cross-Modal-Projection-Learning-for-Image-Text-Matching) "pytorch implementation for ECCV2018 paper [Deep Cross-Modal Projection Learning for Image-Text Matching](http://openaccess.thecvf.com/content_ECCV_2018/papers/Ying_Zhang_Deep_Cross-Modal_Projection_ECCV_2018_paper.pdf)".
 ## Requirement
 * Python 3.7
